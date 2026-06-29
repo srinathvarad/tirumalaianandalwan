@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thirumalai Ananthalvan - The Man of Courage, disciple of Bhagavad Ramanuja, composer of Ramanuja Chatusloki and Goda Chatusloki.">
+    <title>Thirumalai Ananthalvan • The Man of Courage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@300;400;500&amp;family=Noto+Serif+Devanagari:wght@400;700&amp;display=swap');
+        body { font-family: 'Inter', system_ui, sans-serif; }
+        .heading-serif { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; }
+        .sanskrit { font-family: 'Noto Serif Devanagari', Georgia, serif; }
+        .tab-button { transition: all 0.3s ease; position: relative; }
+        .tab-button.active { color: #854d0e; font-weight: 600; }
+        .tab-button.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 3px; background: linear-gradient(to right, #c9a227, #854d0e); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .shloka-card { transition: all 0.3s ease; }
+        .verse-number { background: linear-gradient(135deg, #c9a227, #854d0e); color: white; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; }
+    </style>
+</head>
+<body class="bg-[#f8f1e3] text-slate-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white/95 backdrop-blur border-b sticky top-0 z-50">
+        <div class="max-w-screen-2xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-[#c9a227] to-[#854d0e] rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-lotus text-white text-2xl"></i>
+                </div>
+                <div>
+                    <span class="font-bold text-2xl tracking-tighter">Thirumalai Ananthalvan</span>
+                    <span class="block text-[10px] text-slate-500 -mt-1">ANPILLAI • MADHURAKAVIDASA</span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-x-2 text-sm">
+                <button onclick="document.getElementById('works-tab').click()" class="px-4 py-2 hover:bg-slate-100 rounded-full font-medium">Works</button>
+                <button onclick="document.getElementById('legacy-tab').click()" class="px-4 py-2 hover:bg-slate-100 rounded-full font-medium">Legacy</button>
+            </div>
+            <button onclick="downloadPDF()" class="flex items-center gap-x-2 px-5 py-2 bg-[#c9a227] hover:bg-[#b8860b] text-white text-sm font-semibold rounded-full">
+                <i class="fa-solid fa-download"></i><span>PDF</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative h-[92dvh] min-h-[580px] flex items-center justify-center overflow-hidden">
+        <img src="images/hero-tirumala.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Tirumala Hills">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/75"></div>
+        <div class="relative z-10 text-center px-6 max-w-5xl">
+            <div class="inline-flex items-center gap-x-2 bg-white/10 px-4 py-1 rounded-full mb-5 border border-white/20">
+                <span class="text-white/90 text-sm tracking-widest">Chithrai Chithrai • 1053 CE • TIRUMALA</span>
+            </div>
+            <h1 class="text-white text-6xl md:text-7xl font-bold tracking-tighter leading-none mb-3">THIRUMALAI<br>ANANTHALVAN</h1>
+            <p class="text-2xl text-white/90 font-light mb-2">The Man of Courage</p>
+            <p class="text-white/70 max-w-md mx-auto">Disciple of Bhagavad Ramanuja • Composer of Ramanuja &amp; Goda Chatusloki</p>
+            <div class="mt-8 flex justify-center gap-4">
+                <button onclick="document.getElementById('legend-tab').click()" class="px-8 py-3.5 bg-[#c9a227] hover:bg-[#b8860b] text-white font-semibold rounded-2xl flex items-center gap-x-2">
+                    <span>Read the Legend</span>
+                </button>
+                <button onclick="document.getElementById('works-tab').click()" class="px-8 py-3.5 border border-white/40 text-white font-medium rounded-2xl hover:bg-white/10">
+                    Explore His Works
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Quick Facts -->
+    <div class="max-w-screen-2xl mx-auto px-6 -mt-6 relative z-20">
+        <div class="bg-white rounded-3xl shadow-xl border p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div><div class="text-4xl font-bold text-[#c9a227]">Chithrai Chithrai</div><div class="text-xs text-slate-500 mt-1">Thirunakshatram<br>(same as Madhurakavi Azhwar)</div></div>
+            <div><div class="text-4xl font-bold text-[#c9a227]">Anpillai</div><div class="text-xs text-slate-500 mt-1">Title given by<br>Ramanuja</div></div>
+            <div><div class="text-4xl font-bold text-[#c9a227]">Madhurakavidasa</div><div class="text-xs text-slate-500 mt-1">Proud title of<br>Acharya nishtai</div></div>
+            <div><div class="text-4xl font-bold text-[#c9a227]">Adi Pooram</div><div class="text-xs text-slate-500 mt-1">Attained Paramapadam<br>at Tirumala</div></div>
+        </div>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="max-w-screen-2xl mx-auto px-6 pt-10">
+        <div class="flex flex-wrap gap-x-1 gap-y-1 border-b border-slate-200 pb-1 overflow-x-auto">
+            <button onclick="showTab('overview')" id="overview-tab" class="tab-button active px-6 py-3 text-sm font-medium text-slate-700 whitespace-nowrap">Overview</button>
+            <button onclick="showTab('life')" id="life-tab" class="tab-button px-6 py-3 text-sm font-medium text-slate-700 whitespace-nowrap">Life Journey</button>
+            <button onclick="showTab('legend')" id="legend-tab" class="tab-button px-6 py-3 text-sm font-medium text-slate-700 whitespace-nowrap">The Sacred Legend</button>
+            <button onclick="showTab('works')" id="works-tab" class="tab-button px-6 py-3 text-sm font-medium text-slate-700 whitespace-nowrap">Literary Works</button>
+            <button onclick="showTab('teachings')" id="teachings-tab" class="tab-button px-6 py-3 text-sm font-medium text-slate-700 whitespace-nowrap">Teachings</button>
+            <button onclick="showTab('legacy')" id="legacy-tab" class="tab-button px-6 py-3 text-sm font-medium text-slate-700 whitespace-nowrap">Legacy</button>
+            <button onclick="showTab('gallery')" id="gallery-tab" class="tab-button px-6 py-3 text-sm font-medium text-slate-700 whitespace-nowrap">Gallery</button>
+        </div>
+    </div>
+
+    <!-- Overview -->
+    <div id="overview" class="tab-content active max-w-screen-2xl mx-auto px-6 py-10">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="heading-serif text-5xl tracking-tighter">The Embodiment of<br>Acharya Bhakti</h2>
+            <p class="mt-6 text-lg text-slate-600">Thirumalai Ananthalvan (also known as Ananthazhwan) was one of the greatest disciples of Bhagavad Ramanuja. Born on the same star as Madhurakavi Azhwar (Chithrai-Chithrai), he exemplified complete Acharya nishtai. When no one else dared, he accepted Ramanuja’s command to go to the dangerous Tirumala hills and create a flower garden for Lord Venkateswara’s daily service.</p>
+        </div>
+    </div>
+
+    <!-- Life Journey -->
+    <div id="life" class="tab-content max-w-screen-2xl mx-auto px-6 py-10">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="heading-serif text-4xl mb-8">Life Journey</h2>
+            <div class="space-y-8">
+                <div class="flex gap-6">
+                    <div class="w-8 h-8 mt-1 flex-shrink-0 rounded-full bg-gradient-to-br from-[#c9a227] to-[#854d0e] flex items-center justify-center text-white"><i class="fa-solid fa-baby"></i></div>
+                    <div>
+                        <div class="font-semibold text-xl">Birth (Chithrai Chithrai)</div>
+                        <p class="text-slate-600 mt-1">Born in Sirupuththur (Kiranganur) near Mysore. His thirunakshatram is the same as Madhurakavi Azhwar, reflecting his complete dependence on his Acharya, just as Madhurakavi was on Nammazhwar.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div class="w-8 h-8 mt-1 flex-shrink-0 rounded-full bg-gradient-to-br from-[#c9a227] to-[#854d0e] flex items-center justify-center text-white"><i class="fa-solid fa-hands-praying"></i></div>
+                    <div>
+                        <div class="font-semibold text-xl">Surrender to Ramanuja</div>
+                        <p class="text-slate-600 mt-1">After hearing of Ramanuja’s glories, he surrendered at Srirangam. Ramanuja instructed him to take shelter under Arulala Perumal Emperumanar first, then fully accepted him as a disciple.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div class="w-8 h-8 mt-1 flex-shrink-0 rounded-full bg-gradient-to-br from-[#c9a227] to-[#854d0e] flex items-center justify-center text-white"><i class="fa-solid fa-mountain"></i></div>
+                    <div>
+                        <div class="font-semibold text-xl">The Divine Command – Tirumala</div>
+                        <p class="text-slate-600 mt-1">While explaining Nammazhwar’s desire for fresh flower service to Thiruvenkatamudaiyan, Ramanuja asked who would go to Tirumala and create a garden. Ananthalvan immediately volunteered. He created the garden named <strong>“Iramanusan”</strong> (after Ramanuja) and served fresh flowers daily.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Legend -->
+    <div id="legend" class="tab-content max-w-screen-2xl mx-auto px-6 py-10">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-12 gap-10">
+                <div class="md:col-span-7">
+                    <h2 class="heading-serif text-4xl tracking-tighter mb-6">The Crowbar &amp; Divine Forgiveness</h2>
+                    <div class="space-y-5 text-slate-700">
+                        <p>While digging a pond for the garden with his pregnant wife, Lord Venkateswara appeared as a young boy to help. Ananthalvan, determined to fulfill his Acharya’s order personally, became angry when the boy helped his wife and chased him with a crowbar. The crowbar struck the boy’s chin; he vanished into the temple.</p>
+                        <p>When the doors opened, blood was seen flowing from the chin of <strong>Lord Venkateswara</strong>. Ananthalvan fell at His feet in repentance. The Lord forgave him with infinite compassion. To this day, <strong>pacchaikarpuram</strong> (medicated camphor) is applied daily on the Lord’s chin to cool the wound — a living memorial of this supreme devotion.</p>
+                    </div>
+                </div>
+                <div class="md:col-span-5">
+                    <img src="images/venkateswara-chin.jpg" class="rounded-3xl shadow-xl w-full" alt="Lord Venkateswara">
+                    <p class="text-center text-xs text-slate-500 mt-3">The chin where pacchaikarpuram is applied daily</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Literary Works -->
+    <div id="works" class="tab-content max-w-screen-2xl mx-auto px-6 py-10">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="heading-serif text-5xl tracking-tighter">Literary Works</h2>
+                <p class="text-lg text-slate-600 mt-2">Compositions of Thirumalai Ananthalvan</p>
+            </div>
+
+            <!-- Ramanuja Chatusloki -->
+            <div class="mb-12">
+                <div class="flex items-center gap-x-3 mb-6">
+                    <div class="w-9 h-9 bg-gradient-to-br from-[#c9a227] to-[#854d0e] rounded-full flex items-center justify-center text-white"><i class="fa-solid fa-scroll"></i></div>
+                    <div><h3 class="text-3xl font-semibold tracking-tight">Ramanuja Chatusloki</h3><p class="text-sm text-slate-500">Four verses glorifying Bhagavad Ramanuja</p></div>
+                </div>
+
+                <div class="shloka-card bg-white border rounded-3xl p-7 mb-5">
+                    <div class="flex items-center gap-x-3 mb-3"><div class="verse-number">1</div><div class="font-semibold text-[#854d0e]">Verse 1</div></div>
+                    <div class="sanskrit text-xl leading-relaxed mb-3">अखिलात्मन्य गुणवासं अज्ञानतिमिरापहम् । आभितानां सुरचरणं वन्दे अनन्तार्य देशिकम् ॥</div>
+                    <div class="text-sm text-slate-600">I bow to the great teacher Anantarya, the abode of all auspicious qualities, remover of the darkness of ignorance, and refuge of all who have surrendered.</div>
+                </div>
+
+                <div class="shloka-card bg-white border rounded-3xl p-7 mb-5">
+                    <div class="flex items-center gap-x-3 mb-3"><div class="verse-number">2</div><div class="font-semibold text-[#854d0e]">Verse 2</div></div>
+                    <div class="sanskrit text-xl leading-relaxed mb-3">भूमिं वि विमतिसंस्थितं रक्षः कुलविनाशनम् । शक्तिकूटं विवाद्यं च जय रामानुज देशिकम् ॥</div>
+                    <div class="text-sm text-slate-600">Victory to Ramanuja, who firmly established the truth, destroyed the lineage of the wicked, and is the crest-jewel of all powers.</div>
+                </div>
+
+                <div class="shloka-card bg-white border rounded-3xl p-7 mb-5">
+                    <div class="flex items-center gap-x-3 mb-3"><div class="verse-number">3</div><div class="font-semibold text-[#854d0e]">Verse 3</div></div>
+                    <div class="sanskrit text-xl leading-relaxed mb-3">श्रीनिवासस्य प्रणामं तस्य कृपयास्य वशीकृतम् । अङ्कुशं स्वत एव भव्यं जय रामानुज हंसिनम् ॥</div>
+                    <div class="text-sm text-slate-600">Victory to Ramanuja, the great swan, whose prostration to Srinivasa was accepted by grace, and who controls the mind like a goad.</div>
+                </div>
+
+                <div class="shloka-card bg-white border rounded-3xl p-7">
+                    <div class="flex items-center gap-x-3 mb-3"><div class="verse-number">4</div><div class="font-semibold text-[#854d0e]">Phala Shruti</div></div>
+                    <div class="sanskrit text-xl leading-relaxed mb-3">रामानुज चतुःश्लोकं यः पठेच्छ्रद्धया युतः । प्राप्यते परमं भक्ति वासुदेवस्य शाश्वतीम् ॥</div>
+                    <div class="text-sm text-slate-600">Whoever reads these four verses with faith attains supreme and eternal devotion to Lord Vasudeva.</div>
+                </div>
+            </div>
+
+            <!-- Goda Chatusloki -->
+            <div>
+                <div class="flex items-center gap-x-3 mb-6">
+                    <div class="w-9 h-9 bg-gradient-to-br from-rose-600 to-pink-700 rounded-full flex items-center justify-center text-white"><i class="fa-solid fa-heart"></i></div>
+                    <div><h3 class="text-3xl font-semibold tracking-tight">Goda Chatusloki</h3><p class="text-sm text-slate-500">Four verses glorifying Andal (Goda Devi)</p></div>
+                </div>
+
+                <div class="shloka-card bg-white border rounded-3xl p-7 mb-5">
+                    <div class="flex items-center gap-x-3 mb-3"><div class="verse-number">1</div><div class="font-semibold text-rose-700">Verse 1</div></div>
+                    <div class="sanskrit text-xl leading-relaxed mb-3">नित्यं भूषा निगम शिरसां निःसम्मोत्तुङ्ग वात्ता कान्तो यस्याः कचविलुलितैः कामुको माल्यरत्नैः । सूक्त्या यस्याः श्रुति सुभगया सुप्रभाता धरित्री सैषा देवी सकल जननी सिञ्चतां मामपाङ्गैः ॥</div>
+                    <div class="text-sm text-slate-600">May Goddess Andal, eternally adorned by the Vedas, shower her gracious glances upon me.</div>
+                </div>
+
+                <div class="shloka-card bg-white border rounded-3xl p-7 mb-5">
+                    <div class="flex items-center gap-x-3 mb-3"><div class="verse-number">2</div><div class="font-semibold text-rose-700">Verse 2</div></div>
+                    <div class="sanskrit text-xl leading-relaxed mb-3">माता चेत्तुलसी पिता यदि तव विष्णुचित्तो महान् भ्राता चेत्तु यतिशेखरः प्रियतमः श्रीरङ्गधामा यदि । ज्ञातारः तनयाः त्वदुक्ति सरस स्तन्येन संवर्धिताः गोदा देवी कथं त्वं अन्यसुलभा साधारणा श्रीरसि ॥</div>
+                    <div class="text-sm text-slate-600">If Tulasi is your mother, Vishnuchitta your father, Ramanuja your brother, and Ranganatha your consort — how can you be easily accessible to others, O Goda Devi?</div>
+                </div>
+
+                <div class="shloka-card bg-white border rounded-3xl p-7 mb-5">
+                    <div class="flex items-center gap-x-3 mb-3"><div class="verse-number">3</div><div class="font-semibold text-rose-700">Verse 3</div></div>
+                    <div class="sanskrit text-xl leading-relaxed mb-3">कल्पादौ हरिणा स्वयं जनहितं दृष्ट्वैव सर्वात्मनाम् प्रोक्तं स्वस्य च कीर्तनं प्रपदनं स्वस्मै प्रसूनार्पणम् । सर्वेषां प्रकटं विधातुमनिशं श्रीधन्विन्ये पुरे जातां वैदिक विष्णुचित्त तनयां गोदां उदारांस्तुमः ॥</div>
+                    <div class="text-sm text-slate-600">We praise the noble Goda, daughter of Vishnuchitta, born to manifest the principle of self-surrender taught by the Lord at the beginning of creation.</div>
+                </div>
+
+                <div class="shloka-card bg-white border rounded-3xl p-7">
+                    <div class="flex items-center gap-x-3 mb-3"><div class="verse-number">4</div><div class="font-semibold text-rose-700">Verse 4</div></div>
+                    <div class="sanskrit text-xl leading-relaxed mb-3">आकूतस्य परिष्क्रियां अनुपमां आसेचनं चक्षुषोः आनन्दस्य परम्परां अनुगुणां आरामशैलेशितुः । तद्दोर्मध्य किरीटकोटि घटित स्वोच्छिष्ट कस्तूरिका माल्यामोद समेधितात्म विभवां गोदां उदारांस्तुमः ॥</div>
+                    <div class="text-sm text-slate-600">We praise noble Goda, whose unique glory adorns the chest of the Lord of Venkata hills, enhanced by the fragrance of kasturi and garlands from His crown.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Teachings -->
+    <div id="teachings" class="tab-content max-w-screen-2xl mx-auto px-6 py-10">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="heading-serif text-4xl mb-8">Core Teachings</h2>
+            <div class="bg-white border rounded-3xl p-8">
+                <p class="text-lg">"A true Srivaishnava is like a <strong>crane</strong>, like a <strong>cock</strong>, like <strong>salt</strong>."</p>
+                <div class="mt-6 grid md:grid-cols-3 gap-6 text-sm">
+                    <div><strong class="text-[#c9a227]">Like a Crane:</strong> Ignores the ordinary and waits for a true Gnani to surrender through devotion.</div>
+                    <div><strong class="text-[#c9a227]">Like a Cock:</strong> Picks the good grains (Dravida Veda of Nammalvar) from the chaff.</div>
+                    <div><strong class="text-[#c9a227]">Like Salt:</strong> Completely dissolves himself in Bhagavat, Bhagavata, and Acharya Kainkarya.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Legacy -->
+    <div id="legacy" class="tab-content max-w-screen-2xl mx-auto px-6 py-10">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="heading-serif text-4xl mb-8">Enduring Legacy</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-7 rounded-3xl border"><strong>The Magizha Tree</strong><br><span class="text-sm">Every Adi Pooram and Chithrai Chithrai, Lord Venkateswara visits the garden and honours the tree under which Ananthalvan attained Paramapadam.</span></div>
+                <div class="bg-white p-7 rounded-3xl border"><strong>Earliest Ramanuja Idol</strong><br><span class="text-sm">Installed by Ananthalvan himself at Tirumala (given to him personally by Ramanuja). The Sathari there is called “Ananthalvan”.</span></div>
+                <div class="bg-white p-7 rounded-3xl border"><strong>Pacchaikarpuram Tradition</strong><br><span class="text-sm">Daily application of medicated camphor on the Lord’s chin continues as a living memorial of his devotion.</span></div>
+                <div class="bg-white p-7 rounded-3xl border"><strong>Madhurakavidasa Lineage</strong><br><span class="text-sm">His descendants proudly bear the title “Madhurakavidasa”, reflecting complete Acharya nishtai.</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery -->
+    <div id="gallery" class="tab-content max-w-screen-2xl mx-auto px-6 py-10">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="heading-serif text-4xl mb-8 text-center">Sacred Gallery</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="rounded-3xl overflow-hidden border"><img src="images/hero-tirumala.jpg" class="w-full aspect-video object-cover"><div class="p-4 text-sm"><strong>Tirumala Hills</strong></div></div>
+                <div class="rounded-3xl overflow-hidden border"><img src="images/venkateswara-chin.jpg" class="w-full aspect-video object-cover"><div class="p-4 text-sm"><strong>Lord Venkateswara</strong></div></div>
+                <div class="rounded-3xl overflow-hidden border"><img src="images/nandavanam.jpg" class="w-full aspect-video object-cover"><div class="p-4 text-sm"><strong>Ananthalvan’s Nandavanam</strong></div></div>
+                <div class="rounded-3xl overflow-hidden border"><img src="images/ananthalvan-idol.jpg" class="w-full aspect-video object-cover"><div class="p-4 text-sm"><strong>Thirumalai Ananthalvan</strong></div></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-slate-900 text-white/70 text-sm py-8 mt-10 border-t border-white/10">
+        <div class="max-w-screen-2xl mx-auto px-6 text-center">
+            Based on “Thirumalai Ananthalvan – A Biography” (T.C.A. Ramanujam) &amp; traditional Guru Paramparai sources<br>
+            <span class="text-xs">For educational and devotional purposes • <a href="http://acharya.org" class="underline">acharya.org</a></span>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(el => el.classList.remove('active'));
+            document.getElementById(tab).classList.add('active');
+            const btn = document.getElementById(tab + '-tab');
+            if (btn) btn.classList.add('active');
+            window.scrollTo({ top: 280, behavior: 'smooth' });
+        }
+        function downloadPDF() { alert("The full biography PDF is available in your original attachments folder."); }
+        function initTabs() {
+            document.getElementById('overview').classList.add('active');
+            document.getElementById('overview-tab').classList.add('active');
+        }
+        window.onload = initTabs;
+    </script>
+</body>
+</html>
