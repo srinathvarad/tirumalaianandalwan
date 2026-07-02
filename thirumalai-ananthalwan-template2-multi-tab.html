@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thirumalai Ananthalwan • Devotional Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@300;400;500&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+            letter-spacing: -0.02em;
+        }
+
+        .devotional-bg {
+            background-color: #FDF8F0;
+        }
+
+        .tab-button {
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        
+        .tab-button.active {
+            color: #7C2D12;
+            font-weight: 600;
+        }
+        
+        .tab-button.active:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #B45309, #D4A017);
+        }
+
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .quote-box {
+            background: linear-gradient(145deg, #FEF3E2 0%, #FDF8F0 100%);
+            border-left: 5px solid #B45309;
+        }
+
+        .devotional-text {
+            color: #3F2A1E;
+            line-height: 1.85;
+        }
+
+        .sacred-gold {
+            color: #B45309;
+        }
+
+        .traditional-border {
+            border: 1px solid #D4A017;
+        }
+
+        .section-header {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header:after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 70px;
+            height: 2px;
+            background: linear-gradient(to right, #B45309, #D4A017);
+        }
+    </style>
+</head>
+<body class="devotional-bg text-[#3F2A1E]">
+    <!-- Navbar -->
+    <nav class="bg-white/95 backdrop-blur-md border-b border-[#D4A017]/40 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-x-4">
+                    <!-- Thenkalai Logo -->
+                    <div class="w-11 h-11">
+                        <svg width="44" height="44" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12 Q8 44 28 44 Q48 44 48 12" stroke="#B45309" stroke-width="6" stroke-linecap="round"/>
+                            <path d="M11 15 Q11 41 28 41 Q45 41 45 15" stroke="#FDF8F0" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="28" y1="8" x2="28" y2="46" stroke="#9F3410" stroke-width="4.5" stroke-linecap="round"/>
+                            <circle cx="28" cy="10" r="3.5" fill="#B45309"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="font-bold text-2xl heading-serif tracking-tight text-[#7C2D12]">Thirumalai Ananthalwan</div>
+                        <div class="text-xs text-[#B45309] -mt-1 tracking-[2px]">ACHARYA BHAKTI • TIRUMALA KAINKARYAM</div>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block text-sm text-[#7C2D12]">
+                    <span class="font-medium">Sri Ramanujaya Namaha</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="max-w-7xl mx-auto px-8 pt-8 pb-6">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-[#D4A017]/30 h-[420px] md:h-[460px]">
+            <img src="imagine_images/8MrXA.jpg" alt="Thirumalai Ananthalwan offering garlands in the sacred garden at Tirumala" 
+                 class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#3F2A1E]/75 via-[#3F2A1E]/50 to-transparent"></div>
+            
+            <div class="absolute bottom-0 left-0 p-10 md:p-12 max-w-2xl">
+                <div class="inline-block px-4 py-1.5 bg-white/90 text-[#7C2D12] text-xs tracking-[1.5px] font-semibold rounded-full mb-4">
+                    11th Century • Disciple of Bhagavad Ramanujacharya
+                </div>
+                <h1 class="text-white text-5xl md:text-6xl leading-none font-bold heading-serif tracking-tighter mb-3">
+                    Thirumalai Ananthalwan
+                </h1>
+                <p class="text-white/95 text-xl">The Embodiment of Acharya Bhakti<br>&amp; Selfless Kainkaryam at Tirumala</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="max-w-7xl mx-auto px-8 sticky top-[79px] z-40 bg-white/95 border-b border-[#D4A017]/30">
+        <div class="flex overflow-x-auto gap-x-1 py-4 text-sm font-medium">
+            <button onclick="switchTab(0)" class="tab-button active px-6 py-2.5 text-[#7C2D12] whitespace-nowrap" data-tab="0">Overview</button>
+            <button onclick="switchTab(1)" class="tab-button px-6 py-2.5 text-[#7C2D12] hover:text-[#B45309] whitespace-nowrap" data-tab="1">Life &amp; Surrender</button>
+            <button onclick="switchTab(2)" class="tab-button px-6 py-2.5 text-[#7C2D12] hover:text-[#B45309] whitespace-nowrap" data-tab="2">Tirumala Kainkaryam</button>
+            <button onclick="switchTab(3)" class="tab-button px-6 py-2.5 text-[#7C2D12] hover:text-[#B45309] whitespace-nowrap" data-tab="3">Sacred Leelas</button>
+            <button onclick="switchTab(4)" class="tab-button px-6 py-2.5 text-[#7C2D12] hover:text-[#B45309] whitespace-nowrap" data-tab="4">Teachings &amp; Literature</button>
+            <button onclick="switchTab(5)" class="tab-button px-6 py-2.5 text-[#7C2D12] hover:text-[#B45309] whitespace-nowrap" data-tab="5">Legacy</button>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-8 pt-10 pb-16">
+
+        <!-- TAB 0: Overview -->
+        <div id="tab-0" class="tab-content active">
+            <div class="max-w-3xl mx-auto text-center">
+                <img src="imagine_images/4ODW6.jpg" alt="Sacred Thenkalai Thiruman" class="w-56 mx-auto mb-8 rounded-2xl shadow-lg border border-[#D4A017]/40">
+                
+                <h2 class="text-4xl heading-serif text-[#7C2D12] mb-4">The Man Who Chose the Hills</h2>
+                <p class="text-xl text-[#5C4033]">When others hesitated, Ananthalwan courageously accepted his Acharya’s command and dedicated his life to serving Lord Venkateswara at Tirumala through selfless kainkaryam.</p>
+            </div>
+        </div>
+
+        <!-- TAB 1: Life & Surrender -->
+        <div id="tab-1" class="tab-content">
+            <div class="max-w-3xl">
+                <h2 class="section-header text-3xl heading-serif mb-6 text-[#7C2D12]">Early Life &amp; Surrender to Ramanujacharya</h2>
+                <div class="devotional-text space-y-5 text-[15.5px]">
+                    <p>Born in 1053 CE at Siruputtur (near Mysore) in a pious Yajur Veda family, Ananthan (later known as Ananthalwan) mastered the Vedas and shastras from a young age and was immersed in Bhagavata bhakti.</p>
+                    <p>Drawn by the greatness of <strong>Bhagavad Ramanujacharya</strong>, he surrendered at Srirangam and became his devoted disciple. His intense acharya bhakti earned him the name Ananthalwan.</p>
+                    
+                    <div class="quote-box p-7 rounded-2xl">
+                        <p class="italic">"He was lost in the ocean of Bhagavad Bhagavata Acharya Bhakti."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: Tirumala Kainkaryam -->
+        <div id="tab-2" class="tab-content">
+            <div class="max-w-4xl">
+                <h2 class="section-header text-3xl heading-serif mb-6 text-[#7C2D12]">The Divine Call to Tirumala</h2>
+                <div class="devotional-text text-[15.5px] space-y-5">
+                    <p>During one of his visits to Tirumala, Bhagavad Ramanujacharya saw the neglected state of the temple and hills. He assembled his 74 disciples and asked who would undertake daily kainkaryam on the dangerous, forested hills.</p>
+                    
+                    <div class="quote-box p-7 rounded-2xl">
+                        <p class="italic">"Beloved Acharya! Bestow the blessing of serving the Lord of the Seven Hills on this humble self. With your grace, I will be happy to undertake this service."</p>
+                        <p class="mt-4 font-semibold text-[#B45309]">— Ananthalwan (Anantharya)</p>
+                    </div>
+                    
+                    <p>Ramanujacharya was overjoyed. He embraced him and declared before everyone: <strong>“Anantharya, You are truly the man (Aanpillai).”</strong></p>
+                    
+                    <p>Ananthalwan, along with his devoted wife, settled on the hills, cleared the wilderness, created the beautiful flower garden (Ananthalwan Thota), and began daily pushpa kainkaryam — offering fresh fragrant garlands to Lord Venkateswara.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: Sacred Leelas -->
+        <div id="tab-3" class="tab-content">
+            <div class="max-w-4xl space-y-10">
+                <!-- Garland Episode -->
+                <div>
+                    <div class="font-semibold text-2xl mb-4 text-[#7C2D12]">The Garland Leela &amp; Madhurakavi Parallel</div>
+                    <div class="devotional-text">
+                        <p>One day while making the garland, Ananthalwan got delayed. The Lord sent word asking him to come immediately. He refused, saying he would come only when the garland was finished.</p>
+                        <p class="mt-3">The Lord, in pranaya kopa, told him to leave Tirumala. Ananthalwan fearlessly replied that he was there on his Acharya’s command, not the Lord’s command, and would rather disobey the Lord than his Acharya.</p>
+                        
+                        <div class="my-5 p-6 bg-white border-l-8 border-[#B45309] rounded-r-2xl">
+                            The Lord was greatly pleased and declared that Ananthalwan’s acharya bhakti was equal to that shown by <strong>Madhurakavi Azhvar</strong> to Nammazhvar. From that day onwards, he and all his descendants are known as <strong>Madhurakavi Dāsan</strong>.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chin Leela -->
+                <div>
+                    <div class="font-semibold text-2xl mb-4 text-[#7C2D12]">The Chin Leela &amp; The Sacred Crowbar</div>
+                    <div class="devotional-text">
+                        <p>While digging the tank with intense zeal, Ananthalwan’s pregnant wife was helping. A young brahmachari offered to assist her. In his single-pointed protectiveness of kainkaryam, Ananthalwan threw the crowbar. It struck the young man, who disappeared into the sanctum sanctorum.</p>
+                        <p class="mt-3">When Ananthalwan entered, he saw blood flowing from the chin of Lord Venkateswara’s murti. Realizing it was the Lord Himself who had come to help, he applied pacchaikarpuram and begged forgiveness. The mark remains visible on the Lord’s chin to this day. The crowbar is preserved at the temple entrance as a sacred memento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: Teachings & Literature -->
+        <div id="tab-4" class="tab-content">
+            <div class="max-w-4xl">
+                <h2 class="section-header text-3xl heading-serif mb-6 text-[#7C2D12]">Teachings &amp; Literature</h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <div class="font-semibold mb-2">Goda Chatusloki &amp; Ramanuja Chatusloki</div>
+                        <p class="devotional-text">Ananthalwan composed beautiful verses on Andal and highlighted the four places dearest to Ramanujacharya: Srirangam, Tirumalai, Kanchipuram, and Melkote.</p>
+                    </div>
+                    
+                    <div class="bg-white p-7 rounded-3xl border border-[#D4A017]/40">
+                        <div class="font-semibold mb-4">What is a True Sri Vaishnavite?</div>
+                        <p class="mb-4">"A true Sri Vaishnavite is like a <strong>crane</strong>, like a <strong>cock</strong>, like <strong>salt</strong>."</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+                            <div class="bg-[#FEF3E2] p-4 rounded-2xl">Crane — Awaits a true Gnani to surrender.</div>
+                            <div class="bg-[#FEF3E2] p-4 rounded-2xl">Cock — Picks only the Dravida Veda.</div>
+                            <div class="bg-[#FEF3E2] p-4 rounded-2xl">Salt — Dissolves in kainkaryam with humility.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: Legacy -->
+        <div id="tab-5" class="tab-content">
+            <div class="max-w-4xl">
+                <h2 class="section-header text-3xl heading-serif mb-6 text-[#7C2D12]">Eternal Legacy</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-7 rounded-3xl border border-[#D4A017]/40">
+                        <div class="font-semibold mb-2">Ramanuja Shrine at Tirumala</div>
+                        <p class="text-sm">Ananthalwan’s final sacred gift. The murti was given by Ramanujacharya himself. The satari used here is named after him.</p>
+                    </div>
+                    <div class="bg-white p-7 rounded-3xl border border-[#D4A017]/40">
+                        <div class="font-semibold mb-2">Festivals &amp; Descendants</div>
+                        <p class="text-sm">Purasai Thota Utsavam • Avatharotsavam in Chithirai • All descendants proudly call themselves <strong>Madhurakavi Dāsan</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-[#3F2A1E] text-[#E8D5B7] py-9 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex justify-center mb-4">
+                <svg width="36" height="36" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 12 Q8 44 28 44 Q48 44 48 12" stroke="#D4A017" stroke-width="5" stroke-linecap="round"/>
+                    <line x1="28" y1="8" x2="28" y2="46" stroke="#9F3410" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="text-white text-lg heading-serif mb-1">Sri Ramanujaya Namaha</div>
+            <p class="max-w-xs mx-auto">Offered as kainkaryam at the lotus feet of Bhagavad Ramanujacharya and Thirumalai Ananthalwan.</p>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tabIndex) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById('tab-' + tabIndex).classList.add('active');
+            
+            const activeBtn = document.querySelector(`[data-tab="${tabIndex}"]`);
+            if (activeBtn) activeBtn.classList.add('active');
+        }
+        
+        window.onload = function() {
+            const firstBtn = document.querySelector('.tab-button');
+            if (firstBtn) firstBtn.classList.add('active');
+        };
+    </script>
+</body>
+</html>
